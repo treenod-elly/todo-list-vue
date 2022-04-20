@@ -4,7 +4,7 @@
       <span>+</span>
     </div>
     <!-- <div onClick={() => setIsShow(true)}>+</div> -->
-    <TodoInput v-if="false" />
+    <TodoInput v-if="true" @add-todo="addTodo" />
   </div>
 </template>
 
@@ -14,6 +14,9 @@ import TodoInput from "./TodoInput.vue"
 export default {
   name: "TodoCreate",
   components: { TodoInput },
+  props: {
+    addTodo: Function,
+  },
 }
 </script>
 

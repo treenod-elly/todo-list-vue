@@ -4,7 +4,7 @@
   </div>
   <TodoDate />
   <TodoList :todos="todos" :removeTodo="removeTodo" :changeCompleted="changeCompleted" />
-  <TodoCreate @add-todo="addTodo" />
+  <TodoCreate :addTodo="addTodo" />
 </template>
 
 <script>
@@ -34,7 +34,7 @@ export default {
   },
   methods: {
     addTodo(todo) {
-      this.todos.push({ id: this.todos.length, title: todo, completed: false })
+      this.todos.push({ id: this.todos.length + 1, title: todo, completed: false })
     },
     removeTodo(id) {
       this.todos = this.todos.filter((v) => id !== v.id)

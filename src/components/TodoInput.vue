@@ -2,7 +2,7 @@
   <div className="TodoCreate">
     <div className="modal">
       <div>
-        <input type="text" v-model="todo" />
+        <input type="text" v-model="todo"  />
       </div>
       <button id="add" @click="addTodo">Add</button>
     </div>
