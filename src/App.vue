@@ -3,22 +3,22 @@
     <img alt="Vue logo" src="./assets/logo.png" />
   </div>
   <TodoDate />
-  <TodoInput @add-todo="addTodo" />
   <TodoList :todos="todos" :removeTodo="removeTodo" :changeCompleted="changeCompleted" />
+  <TodoCreate @add-todo="addTodo" />
 </template>
 
 <script>
-import TodoInput from "./components/TodoInput.vue"
 import TodoList from "./components/TodoList.vue"
-import TodoDate from './components/TodoDate.vue'
+import TodoDate from "./components/TodoDate.vue"
+import TodoCreate from "./components/TodoCreate.vue"
 import axios from "axios"
 
 export default {
   name: "App",
   components: {
-    TodoInput,
     TodoList,
     TodoDate,
+    TodoCreate,
   },
   data() {
     return {

@@ -1,7 +1,11 @@
 <template>
-  <div>
-    <input type="text" v-model="todo"/>
-    <button @click="addTodo">add</button>
+  <div className="TodoCreate">
+    <div className="modal">
+      <div>
+        <input type="text" v-model="todo" />
+      </div>
+      <button id="add" @click="addTodo">Add</button>
+    </div>
   </div>
 </template>
 
@@ -11,15 +15,15 @@ export default {
   props: {},
   methods: {
     addTodo() {
-      this.$emit('add-todo', this.todo)
-      this.todo = ''
-    }
+      this.$emit("add-todo", this.todo)
+      this.todo = ""
+    },
   },
   data() {
     return {
-      todo: '',
+      todo: "",
     }
-  }
+  },
 }
 </script>
 
