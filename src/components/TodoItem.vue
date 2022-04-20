@@ -1,8 +1,8 @@
 <template>
   <li>
-    <input type="checkbox" name="" id="" @click="this.$emit('change-completed', todo.id)" :checked="todo.completed" />
     <span>{{ todo.title }}</span>
-    <button @click="this.$emit('remove-todo', todo.id)">X</button>
+    <input type="checkbox" name="" id="" @click="this.$emit('change-completed', todo.id)" :checked="todo.completed" />
+    <!-- <button @click="this.$emit('remove-todo', todo.id)">X</button> -->
   </li>
 </template>
 

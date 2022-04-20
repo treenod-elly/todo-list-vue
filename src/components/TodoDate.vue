@@ -1,0 +1,52 @@
+<template>
+  <div className="Date">
+    <div>
+      <p className="date">{{date[2]}}</p>
+      <div>
+        <p>{{date[1]}}</p>
+        <p className="year">{{date[0]}}</p>
+      </div>
+    </div>
+    <div>{{date[3]}}</div>
+  </div>
+</template>
+
+<script>
+import moment from "moment"
+export default {
+  name: "TodoDate",
+  computed: {
+    date() {
+      return moment().format("YYYY MMM DD dddd").split(" ")
+    },
+  },
+}
+</script>
+
+<style lang="scss">
+.Date {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  align-items: center;
+  padding: 0 3rem;
+  text-transform: uppercase;
+  div:first-child {
+    display: flex;
+    font-size: 0.9rem;
+    div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+  .date {
+    color: #5d616e;
+    font-size: 3rem;
+    padding-right: 0.5rem;
+  }
+  .year {
+    color: #b2b3b9;
+  }
+}
+</style>

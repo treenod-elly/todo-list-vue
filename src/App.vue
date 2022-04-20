@@ -1,5 +1,8 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
+  <div class="logo">
+    <img alt="Vue logo" src="./assets/logo.png" />
+  </div>
+  <TodoDate />
   <TodoInput @add-todo="addTodo" />
   <TodoList :todos="todos" :removeTodo="removeTodo" :changeCompleted="changeCompleted" />
 </template>
@@ -7,13 +10,15 @@
 <script>
 import TodoInput from "./components/TodoInput.vue"
 import TodoList from "./components/TodoList.vue"
-import axios from 'axios';
+import TodoDate from './components/TodoDate.vue'
+import axios from "axios"
 
 export default {
   name: "App",
   components: {
     TodoInput,
     TodoList,
+    TodoDate,
   },
   data() {
     return {
@@ -24,7 +29,7 @@ export default {
     }
   },
   async mounted() {
-    const res = await axios.get('https://jsonplaceholder.typicode.com/todos?userId=1')
+    const res = await axios.get("https://jsonplaceholder.typicode.com/todos?userId=1")
     this.todos = res.data
   },
   methods: {
@@ -32,7 +37,7 @@ export default {
       this.todos.push({ id: this.todos.length, title: todo, completed: false })
     },
     removeTodo(id) {
-      this.todos = this.todos.filter(v => id !== v.id)
+      this.todos = this.todos.filter((v) => id !== v.id)
     },
     changeCompleted(id) {
       this.todos = this.todos.map((v) => (v.id === id ? { ...v, completed: !v.completed } : v))
@@ -42,12 +47,43 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: content-box;
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  background: #f0efe9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+#app {
+  color: #7b7e84;
+  font-weight: bold;
+  background: white;
+  border: 3px solid #eaeae6;
+  padding: 3rem 0;
+  height: 70vh;
+  min-width: 400px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.logo {
+  display: flex;
+  justify-content: center;
+}
+img {
+  width: 50px;
+}
+ul {
+  list-style: none;
 }
 </style>
