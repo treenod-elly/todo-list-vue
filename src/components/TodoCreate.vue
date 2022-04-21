@@ -4,7 +4,7 @@
       <span>+</span>
     </div>
     <!-- <div onClick={() => setIsShow(true)}>+</div> -->
-    <TodoInput v-if="true" @add-todo="addTodo" />
+    <TodoInput v-if="false" @add-todo="addTodo" />
   </div>
 </template>
 

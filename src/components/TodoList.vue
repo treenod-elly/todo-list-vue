@@ -27,6 +27,10 @@ $completedColor: #d6d9dd;
   padding: 0 3rem;
   overflow: scroll;
   margin-bottom: 1rem;
+  
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+  }
 
   p {
     padding: 0 3rem;
@@ -41,7 +45,7 @@ $completedColor: #d6d9dd;
       flex: 1;
     }
 
-    svg {
+    i {
       font-size: 2rem;
       color: $completedColor;
     }
